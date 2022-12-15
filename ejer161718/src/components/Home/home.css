@@ -1,0 +1,11 @@
+.imagen-home{
+    height: 100vh;
+    width: 100%;
+    margin-top: -1%;
+    object-fit:contain;
+    box-shadow: inset 0 0 0 1000px var(--black-colorcover);
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}

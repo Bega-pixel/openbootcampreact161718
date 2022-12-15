@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+}
+ul{
+  color: white;
+  text-decoration: none;
+  list-style-type: none;
+  
+  margin-left:1% ;
+}
+
+.notFound-container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 25%;
+  color: rgb(0, 255, 255);
+}
+
+.notFound-container h3{
+  font-size: 100px;
+}
+
+.notFound-container h2{
+  font-size: 255px;
+}
