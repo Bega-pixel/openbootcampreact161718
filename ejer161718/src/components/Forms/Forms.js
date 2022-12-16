@@ -1,88 +1,68 @@
-import React from 'react'
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import './Forms.css'
+import Cards from '../Cards/Cards';
+import React, {useState} from 'react';
+import Profile from '../Profile/Profile';
 
-const loginSchema = Yup.object().shape({
-    email: Yup.string()
-      .email('Invalid format')
-      .required('Email is requireed'),
-    password: Yup.string().required('Password is required')
-  })
+function About({i}) {
 
-const Forms = ({ onSubmit }) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [cards, setCards ] = useState([]);
 
-  const formInfo = {
-    email: '',
-    password: ''
-  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  return (
-    
-    <div>
-    <h1>Sign Up</h1>
-    <Formik
-      initialValues={formInfo}
-      onSubmit={async (values) => {
-        await new Promise((r) => setTimeout(r, 500));
-        alert(JSON.stringify(values, null, 2));
-      }}
-      // yup validation schema
-      validationSchema={loginSchema}
-    >
+    if(email === '' && name === '') alert('Debes rellenar la informacion');
 
-{({       
-          
-    errors, 
-    touched,
-    values,
-    Submitting,
-    handleChange,
-    handleBlur,
-    isSubmitting }) => (
-
-
-          <Form>
-        
-        <label htmlFor="email">Email</label>
-
-        <Field
-          id="email"
-          name="email"
-          placeholder="example@email.com"
-          type="email"
-        />
-
-          {errors.email && touched.email && (
-            <div>{errors.email}</div>
-          )}
-            <ErrorMessage name="email" />
-            
-            
-        <label htmlFor="password">Password</label>
-        <Field 
-          id="password" 
-          name="password" 
-          placeholder="password" 
-          type="password"
-
-          />
-
-          {errors.password && touched.password && (
-            <div>{errors.password}</div>
-          )}
-            <ErrorMessage name="password" />
-
-        <button type="submit">Submit</button>
-          {isSubmitting ? (<p>Login user</p>): null} 
-      </Form>
-        )
-      }
-
-      
-    </Formik>
-  </div>
-);
-
+   const newCards = {
+      name:name, 
+      email:email,
     }
 
-export default Forms;
+    const temp = [newCards, ...cards ]
+    setCards(temp)
+
+   // setCards('')
+    //setEmail('')
+}
+
+function hadleChange(e) {
+ setEmail(e.target.value)
+ setName(e.target.value)
+}
+
+function remove(e) {
+  const index = cards.indexOf(e);
+  const tempContact = [...cards];
+  tempContact.splice(index, 1);
+  setCards(tempContact);
+}
+
+
+  return (
+    <div className="forms-container">
+      <Profile  
+        name={name} 
+        setName= {setName} 
+        email={email} 
+        setEmail={setEmail}
+        cards={cards}
+        setCards={setCards}
+        handleSubmit={ handleSubmit }
+        hadleChange = { hadleChange }
+        />
+        {
+          
+        cards.map(() => ( 
+            <Cards  key={i} 
+                    name={name} 
+                    email={email} 
+                    cards={cards}
+                    remove={remove} />
+        ))
+        }
+    </div>
+  );
+}
+
+export default About;

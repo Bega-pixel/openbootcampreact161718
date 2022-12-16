@@ -2,16 +2,21 @@ import '../../App.css';
 import React from "react";
 import { Link } from 'react-router-dom';
 
+const styleLinkNavbar = {
+  textDecoration: 'none', 
+  color:'white'
+}
 
 const Navbar = () => {
   return (
     <div>
       <div className="collapse" id="navbarToggleExternalContent">
         <div className="bg-dark p-4">
-          <ul>
-            <li className="" > <Link rel="stylesheet" to ="/Forms" > sing-in </Link></li>
-            <li className="" > <Link rel="stylesheet" to ="/" > About </Link></li>
-            <li className="" > about</li>
+          <ul >
+            <li className="" ><Link rel="stylesheet" style={styleLinkNavbar} to ="/" > Home </Link></li>
+            <li className="" ><Link rel="stylesheet" style={ styleLinkNavbar} to ="/About" > About </Link></li>
+            <li className="" ><Link rel="stylesheet" style={styleLinkNavbar} to ="/Login" > Sing-in </Link></li>
+            <li className="" ><Link rel="stylesheet" style={styleLinkNavbar} to ="/forms" > User list </Link></li> 
           </ul>
         </div>
       </div>

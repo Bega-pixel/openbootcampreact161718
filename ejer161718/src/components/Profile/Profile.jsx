@@ -1,3 +1,4 @@
+import './Profile.css'
 import React from "react";
 
 
@@ -5,17 +6,17 @@ const Profile = ({ cards ,name, setName ,email, setEmail, handleSubmit, hadleCha
 
     return (
     <div>
-        <form>
+        <form className="container profile-container">
 
             <div className="mb-3">
-                <label htmlFor="exampleInputnewCardsName" className="form-label">
+                <label htmlFor="exampleInputnewCardsName" className="">
                 Name
                 </label>
                 <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 type="name"
-                className="form-control"
+                className="form-control profile-emailbox"
                 id="exampleInputName"
                 hadleChange={hadleChange}
                 />
@@ -27,8 +28,7 @@ const Profile = ({ cards ,name, setName ,email, setEmail, handleSubmit, hadleCha
                 </label>hadleChange
                 <input
                 value={email}
-                onChange={(e) => 
-                                setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 className="form-control"
                 id="exampleInputEmail1"

@@ -3,10 +3,10 @@ import { Outlet, Navigate } from 'react-router-dom';
 
 const PrivateRoutes = () => {
 
-  const logged = {'token': true}
+  const logged = {'token': false}
 
   return (
-    !logged.token ? <Outlet /> : <Navigate to='/about' />
+    !logged.token ? <Outlet /> : <Navigate to='/' />
   )
 }
 

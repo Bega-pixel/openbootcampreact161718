@@ -1,3 +1,4 @@
+import './Cards.css'
 import React from 'react'
 import Botonestado from "../Botones/Botonesestado.js";
 
@@ -5,7 +6,7 @@ const Cards = ({ name, email, remove }) => {
 
     return (
         
-    <div className="card m-5 ">
+    <div className="card  cards-container">
         <div className="card-header">
         User: { name }
         </div>

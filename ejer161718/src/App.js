@@ -2,6 +2,7 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
 import Forms from '../src/components/Forms/Forms';
+import Login from '../src/components/Login/Login';
 import Home from '../src/components/Home/Home.jsx';
 import About from '../src/components/About/About.jsx';
 import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes';
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path='/'  element= {<Home/>} exact />
         <Route path='/About'  element= {<About />} exact />
+        <Route path='/Login'  element= {<Login />} exact />
 
         <Route  element= {<PrivateRoutes />}>
 
